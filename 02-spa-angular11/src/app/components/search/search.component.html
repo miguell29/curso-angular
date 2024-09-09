@@ -1,0 +1,33 @@
+
+
+<div class="constainer">
+  <h2 class="text-light">Resultados de: {{palabra}} (<small class="text-danger">{{heroes.length}}</small>)</h2>
+  <hr class="text-info mb-5">
+</div>
+<div class="row text-center" *ngIf="heroes.length == 0">
+  <div class="col-md-12">
+    <p class="alert alert-info" role="alert">La busqueda no arrojó migun resultado.</p>
+  </div>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-5 pb-5">
+
+
+  <div class="col animated fadeIn fast" *ngFor="let heroe of heroes, let i = index">
+    <div class="card h-100 border-info bg-transparent text-info">
+      <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
+      <div class="card-body">
+        <h5 class="card-title">{{heroe.nombre}}</h5>
+        <p class="card-text">{{heroe.bio}}</p>
+      </div>
+      <button (click)="goHero(i)" class="btn btn-outline-warning mx-5" >Ver mas...</button>
+      <a [routerLink]="['/heroe', i]" class="btn btn-outline-danger mx-5 my-1">Ver mas...</a>
+      <div class="card-footer">
+        <small class="text-secondary">{{heroe.aparicion}}</small>
+      </div>
+    </div>
+  </div>
+
+</div>
+
