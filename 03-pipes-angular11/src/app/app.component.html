@@ -1,0 +1,103 @@
+<section>
+
+  <h2 class="mt-5">Pipes</h2>
+  <hr>
+
+  <table class="table table-info table-striped ">
+    <thead class="table-dark">
+      <tr>
+      <td>Variable</td>
+      <td>Pipe</td>
+      <td>Resultado</td>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ nombre }}</td>
+        <td>uppercase</td>
+        <td>{{ nombre | uppercase}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ nombre }}</td>
+        <td>lowercase</td>
+        <td>{{ nombre | lowercase}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ nombre }}</td>
+        <td>slice:2</td>
+        <td>{{ nombre | slice:2}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ nombre }}</td>
+        <td>slice:4:6</td>
+        <td>{{ nombre | slice:4:6}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ PI }}</td>
+        <td>number:'3.0-0'</td>
+        <td>{{ PI | number:'3.0-0'}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ PI }}</td>
+        <td>number:'.0-2'</td>
+        <td>{{ PI | number:'.0-2'}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ porcentaje }}</td>
+        <td>percent</td>
+        <td>{{ porcentaje | percent}}</td>
+      </tr>
+      <tr>
+        <td>{{ porcentaje }}</td>
+        <td>percent:'0.2-2'</td>
+        <td>{{ porcentaje | percent:'0.2-2'}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ salario }}</td>
+        <td>currency</td>
+        <td>{{ salario | currency}}</td>
+      </tr>
+      <tr>
+        <td>{{ salario }}</td>
+        <td>currency:'ARS':'symbol-narrow':'.0-2'</td>
+        <td>{{ salario | currency:'ARS':'symbol-narrow':'.0-2'}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ promesa }}</td>
+        <td>async</td >
+        <td>{{ promesa | async}}</td>
+      </tr>
+
+      <tr>
+        <td>{{ nombre }}</td>
+        <td>Ocultar Constraseña: {{activar}}
+          <hr>
+          <button (click)="ActivarHandle()" class="btn btn-outline-primary">Activar/Desactivar</button>
+        </td >
+        <td>{{ nombre | ocultar:activar}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="mt-5">slice:3:15 <small>(aplicado a la directiva *ngfor)</small></h3>
+  <hr>
+  <p>arreglo original: {{numeros}}</p>
+  <ul>
+    <li *ngFor="let item of numeros | slice:3:15">{{item}}</li>
+  </ul>
+
+  <h3 class="mt-5">Pipe JSON</h3>
+  <hr>
+  <pre>
+    {{heroe | json}}
+  </pre>
+
+</section>
