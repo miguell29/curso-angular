@@ -1,0 +1,19 @@
+<div class="row row-cols-1 row-cols-sm-2  row-cols-md-3 g-4 ">
+  <div class="col" (click)="IrAArtista(item)" *ngFor="let item of items">
+    <div class="card bg-dark border-info  tarjeta">
+      <div class="card-header border-info">
+        <h5 class="card-title" style="color: whitesmoke;">{{item.name}}</h5>
+      </div>
+
+      <img [src]="item.images | noimage" class="card-img-top" alt="portada">
+      <div class="card-body ">
+        <h6 *ngIf="item.artists">Artistas</h6>
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-success" *ngIf="item.followers" >{{item.followers.total | number}} Seguidores</li>
+          <li class="list-group-item list-group-item-success artista puntero" (click)="IrAArtista(artista)"  *ngFor="let artista of item.artists"   >{{artista.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
